@@ -1,5 +1,7 @@
 const btnNav = document.querySelector('#mobile-menu');
 const menuLinks = document.querySelector('.navbar__menu');
+const navbarLogo = document.querySelector('#navbar__logo');
+
 
 btnNav.addEventListener('click', function() {
     btnNav.classList.toggle('is-active');
@@ -14,3 +16,15 @@ document.querySelectorAll('li a').forEach(anchor => {
         });
     });
 });
+
+const hideMenu = () => {
+    const menuBars = document.querySelector('.is-active');
+    
+    if(window.innerWidth < 960 && menuBars) {
+        btnNav.classList.toggle('is-active');
+        menuLinks.classList.remove('active');
+    }
+}
+
+menuLinks.addEventListener('click', hideMenu);
+navbarLogo.addEventListener('click', hideMenu);
